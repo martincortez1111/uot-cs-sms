@@ -1,0 +1,57 @@
+<div class="container-fluid" style="padding-top: 100px;">
+    <form action="/client/reset/{{id}}/{{token}}" method="POST" class="form-signup">
+
+        {{#each errors}}
+        <div class="alert alert-danger alert-dismissible fade show custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-3x" aria-hidden="true"></i>
+                <div class="media-body ml-4">
+                    <h6 class="mt-2" style="line-height:5px;"><strong>{{text}}</strong></h6>
+                    قم قم بالتأكد من معلومات التسجيل وحاول مجددا
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+        <h3> اعادة تعين كلمة المرور</h3>
+
+
+        <hr>
+        <div class="form-row">
+<!--            <div class="form-group col-lg-12 col-md-12 col-sm-12">-->
+<!--                <label for="Password"> كلمة المرور القديمة</label>-->
+<!--                <input type="text" class="form-control " name="clientPassword" value="{{body.clientPassword}}">-->
+<!--            </div>-->
+
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label>كلمة المرورالجديده
+                    <input type="password" class="form-control " name="clientPassword" >
+                </label>
+            </div>
+
+
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label>تاكيد كلمة المرور
+                    <input type="password" class="form-control" name="password2">
+                </label>
+            </div>
+
+
+            <button type="submit" class="btn btn-dark btn-block btn-lg mt-4 "><i class="fa fa-sign-in"
+                    aria-hidden="true">
+                    اعادة تعيين </i></button>
+
+            <small id="passwordHelpBlock" class="form-text text-muted">
+                يجب ان تكون كلمة المرور الخاصة بك ما لا يقل عن 8 احرف و لا يزيد عن 20 و تتضمن احرف و ارقام و يجب ان
+                لا
+                تحتوي على مسافات او رموز خاصة او رموز تعبيرية
+            </small>
+        </div>
+
+    </form>
+
+
+</div>

@@ -1,0 +1,210 @@
+<div class="container-fluid" id="container-fluid" style="direction: rtl; padding-top:100px">
+    {{#if student}}
+    <div class="card view-card mb-3">
+        <div class="card-body">
+
+            <h3>تفاصيل الطالب</h3>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+    <div class="card view-card ">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <h4 class="display-5 mt-3"> معلومات الطالب</h4>
+                </div>
+            </div>
+
+            <hr>
+
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-2">
+                    <label for="">
+                        <h5>اسم الطالب</h5>
+                    </label>
+                    <p>{{student.StudentInfo.StName}}&nbsp;{{student.StudentInfo.StFname}}&nbsp;{{student.StudentInfo.StGname}}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>الجنس</h5>
+                    </label>
+                    <p>{{student.StudentInfo.Gender}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>الفرع</h5>
+                    </label>
+                    <p>{{student.BranchName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>تاريخ الولادة</h5>
+                    </label>
+                    <p>{{student.StudentInfo.DateOfBirth}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">رقم الهاتف</label>
+                    <p>{{student.StudentInfo.PhoneNumber}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>اللقب</h5>
+                    </label>
+                    <p>{{student.StudentInfo.SurName}}</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h5 class="card-title"></h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>اسم الاب </h5>
+                    </label>
+                    <p>{{student.StudentInfo.StFname}}&nbsp;{{student.StudentInfo.StGname}}&nbsp;{{student.StudentInfo.FourthName}}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>مهنة الوالد</h5>
+                    </label>
+
+                    <p>{{student.StudentInfo.FathersProfession}}</p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>اسم الام</h5>
+                    </label>
+                    <p>{{student.StudentInfo.MotherFullName}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>مهنة الوالدة</h5>
+                    </label>
+                    <p>{{student.StudentInfo.MothersProfession}}</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h5 class="card-title">معلومات شهادة الجنسية</h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>رقم الشهادة</h5>
+                    </label>
+                    <p>{{student.NationalityCertificate.NationalityCertificateNo}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>تاريخ الاصدار</h5>
+                    </label>
+                    <p>{{student.NationalityCertificate.NcReleaseDate}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>محل الولادة</h5>
+                    </label>
+                    <p>{{student.NationalityCertificate.NcplaceOfBirth}}
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h5 class="card-title">معلومات هوية الاحوال المدنية</h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>رقم الهوية</h5>
+                    </label>
+                    <p>{{student.StudentId.StatusIDNo}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>تاريخ الاصدار</h5>
+                    </label>
+                    <p>{{student.StatusID.SidReleaseDate}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>محل الاصدار</h5>
+                    </label>
+                    <p>{{student.StatusID.placeOfRelease}}</p>
+                </div>
+            </div>
+            <hr>
+            <h5 class="card-title">معلومات بطاقة السكن</h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>رقم بطاقة السكن</h5>
+                    </label>
+                    <p>{{student.residenceCard.rcNumber}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>تاريخ الاصدار</h5>
+                    </label>
+                    <p>{{student.residenceCard.rcdReleaseDate}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>العنوان</h5>
+                    </label>
+                    <p>{{student.residenceCard.Address}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>محله</h5>
+                    </label>
+                    <p>{{student.residenceCard.Section}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>زقاق</h5>
+                    </label>
+                    <p>{{student.residenceCard.Alley}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">
+                        <h5>دار</h5>
+                    </label>
+                    <p>{{student.residenceCard.House}}</p>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="row float-myr2">
+            <div class="col-lg-6">
+                <a href="#">
+                    <button type="button" class="btn btn-info"><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp;</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    {{/if}}
+</div>

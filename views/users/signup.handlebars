@@ -1,0 +1,76 @@
+<div class="container-fluid" style="padding-top: 100px;">
+    <form action="/users/signup" method="POST" class="form-signup">
+
+        {{#each errors}}
+        <div class="alert alert-danger alert-dismissible fade show custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-3x" aria-hidden="true"></i>
+                <div class="media-body ml-4">
+                    <h6 class="mt-2" style="line-height:5px;"><strong>{{text}}</strong></h6>
+                    قم قم بالتأكد من معلومات التسجيل وحاول مجددا
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+        <h3> انشاء حساب جديد</h3>
+        <p>يرجى الانتباه : ستتم الموافقة على التسجيلات للأعضاء المخولين فقط</p>
+
+        <hr>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" class="form-control" name="name" value="{{body.name}}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="name">البريد الالكتروني</label>
+                <input type="email" class="form-control" name="email" value="{{body.email}}">
+            </div>
+        </div>
+        <div class=" form-row">
+            <div class="form-group col-md-12">
+                <label for="designation">التسجيل بصفة</label>
+                <select name="role" class="form-control custom-select">
+                    {{#select body.role}}
+                    <option value="">اختيار...</option>
+
+                    <option value="Administrator">مسؤول</option>
+
+
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Password"> كلمة المرور</label>
+                <input type="text" class="form-control " name="password" value="{{body.password}}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ConfirmPassword">تاكيد كلمة المرور</label>
+                <input type="text" class="form-control" name="password2" value="{{body.password2}}">
+            </div>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+                يجب ان تكون كلمة المرور الخاصة بك ما لا يقل عن 8 احرف و لا يزيد عن 20 و تتضمن احرف و ارقام و يجب ان
+                لا
+                تحتوي على مسافات او رموز خاصة او رموز تعبيرية
+            </small>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-default btn-lg btn-block" style="margin-bottom:15px;"> <i
+                    class="fa fa-user-plus" aria-hidden="true"></i> انشاء حساب</button>
+        </div>
+
+
+</div>
+
+<script>
+    setTimeout(function () {
+        $(".alert").alert('close')
+    }, 5000);
+</script>

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <form action="/client/signin" method="POST" class="form-signin">
+
+        {{#if error}}
+
+        <div class="alert alert-danger alert-dismissible fade show custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-3x" aria-hidden="true"></i>
+                <div class="media-body ml-4">
+                    <h6 class="mt-2" style="line-height:5px;"><strong>{{error}}.</strong></h6>
+                    تاكد من كلمة المرور والبريد الالكتروني
+                </div>
+            </div>
+        </div>
+
+        {{/if}}
+
+        <div class="media">
+            <img class="mr-4" src="/img/git.png" width="60" alt="Generic placeholder image" style="margin-top:-7px;">
+            <div class="media-body">
+                <h5 class="mt-0">تسجيل الدخول </h5>
+                <h6>يرجى ادخال المعلومات</h6>
+            </div>
+        </div>
+
+        <hr style="margin-top:25px;margin-bottom:25px;">
+
+        <div class="form-group" style="text-align: right;">
+            <label for="formGroupExampleInput">البريد الالكتروني</label>
+            <input type="email" class="form-control" name="email" placeholder="البريد الالكتروني"
+                autocomplete="off" autofocus>
+        </div>
+
+        <div class="form-group" style="text-align: right;">
+            <label for="formGroupExampleInput2">كلمة المرور</label>
+            <input type="password" class="form-control" name="password" placeholder="كلمة المرور"
+                autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block btn-lg mt-4 "><i class="fa fa-sign-in" aria-hidden="true">
+                تسجيل
+                الدخول</i></button>
+        <p class="text-center mt-4">لا تمتلك حساب ؟ انشاء حساب جديد <a href="/client/signup">هنا</a></p>
+        <p class="text-center" style="margin-top:-20px;">
+            <a href="forgot">هل نسيت كلمة المرور</a>
+
+        </p>
+
+    </form>
+</div>

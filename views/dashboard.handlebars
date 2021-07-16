@@ -1,0 +1,399 @@
+<style>
+    /*  styling scrollbars  */
+
+
+
+
+
+
+    * {
+        margin: 0;
+        padding: 0;
+
+    }
+
+
+
+
+    .text-primary-p {
+        color: #a5aaad;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .text-title {
+        color: #2e4a66;
+    }
+
+    .text-lightblue {
+        color: #469cac;
+    }
+
+    .text-red {
+        color: #cc3d38;
+    }
+
+    .text-yellow {
+        color: #a98921;
+    }
+
+    .text-green {
+        color: #3b9668;
+    }
+
+    .container {
+
+        grid-template-columns: 0.8fr 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 3fr;
+        /* grid-gap: 0.2rem; */
+    }
+
+    main {
+        grid-area: main;
+        overflow-y: auto;
+        margin-bottom: 60px;
+    }
+
+    .main__container {
+        padding: 50px;
+
+        padding-top: 100px;
+
+
+    }
+
+    .main__title {
+        display: flex;
+        align-items: center;
+    }
+
+    .main__title>img {
+        max-height: 100px;
+        object-fit: contain;
+        margin-right: 20px;
+    }
+
+    .main__greeting>h5 {
+        font-size: 20px;
+        color: #2e4a66;
+        margin-bottom: 5px;
+    }
+
+    .main__greeting>p {
+        font-size: 18px;
+        font-weight: 700;
+        color: #a5aaad;
+    }
+
+    .main__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        margin: 20px 0;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 120px;
+        padding: 25px;
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 10px 10px 10px #adb5bd, -2px -1px 3px #adb5bd;
+    }
+
+    .card_inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .card_inner>span {
+        font-size: 25px;
+    }
+
+    .card_inner>p {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+
+    .charts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .charts__left {
+        padding: 15px;
+        padding-top: 10px;
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 10px 10px 10px #adb5bd, -2px -1px 3px #adb5bd;
+    }
+
+    .charts__left__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .charts__left__title>div>h1 {
+        font-size: 24px;
+        color: #2e4a66;
+        margin-bottom: 5px;
+    }
+
+    .charts__left__title>div>p {
+        font-size: 14px;
+        font-weight: 700;
+        color: #a5aaad;
+    }
+
+    .charts__left__title>i {
+        color: #ffffff;
+        font-size: 20px;
+        background: #39447a;
+        border-radius: 200px 0px 200px 200px;
+        -moz-border-radius: 200px 0px 200px 200px;
+        -webkit-border-radius: 200px 0px 200px 200px;
+        border: 0px solid #000000;
+        padding: 15px;
+    }
+
+    .charts__right {
+        padding: 15px;
+        padding-top: 10px;
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 10px 10px 10px #adb5bd, -2px -1px 3px #adb5bd;
+    }
+
+    .charts__right__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .charts__right__title>div>h1 {
+        font-size: 24px;
+        color: #2e4a66;
+        margin-bottom: 5px;
+    }
+
+    .charts__right__title>div>p {
+        font-size: 14px;
+        font-weight: 700;
+        color: #a5aaad;
+    }
+
+    .charts__right__title>i {
+        color: #ffffff;
+        font-size: 20px;
+        background: #ffc100;
+        border-radius: 200px 0px 200px 200px;
+        -moz-border-radius: 200px 0px 200px 200px;
+        -webkit-border-radius: 200px 0px 200px 200px;
+        border: 0px solid #000000;
+        padding: 15px;
+    }
+
+    .charts__right__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card1 {
+        background: #d1ecf1;
+        color: #35a4ba;
+        text-align: center;
+        padding: 25px;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .card2 {
+        background: #d2f9ee;
+        color: #38e1b0;
+        text-align: center;
+        padding: 25px;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+
+
+    /*  SIDEBAR STARTS HERE  */
+
+    @media only screen and (max-width: 978px) {
+        .container {
+            grid-template-columns: 1fr;
+            /* grid-template-rows: 0.2fr 2.2fr; */
+            grid-template-rows: 0.2fr 3fr;
+            grid-template-areas: "nav""main";
+        }
+
+        .nav_icon {
+            display: inline;
+        }
+    }
+
+    @media only screen and (max-width: 855px) {
+        .main__cards {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+
+        .charts {
+            grid-template-columns: 1fr;
+            margin-top: 30px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .navbar__left {
+            display: none;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main__container" <!-- MAIN TITLE STARTS HERE -->
+
+    <div class="main__title">
+        <img src="/img/work3.gif" alt="" />
+        <div class="main__greeting">
+            <h5>اهلا بك في نظام الادارة الخاص بالطلاب</h5>
+            <p>اللوحة الرئيسية</p>
+        </div>
+    </div>
+
+    <!-- MAIN TITLE ENDS HERE -->
+
+    <!-- MAIN CARDS STARTS HERE -->
+    <div class="main__cards">
+        <div class="card">
+            <i class="fa fa-graduation-cap fa-2x text-lightblue" aria-hidden="true"></i>
+            <div class="card_inner">
+                <p class="text-primary-p">الطلاب </p>
+                <span class="font-bold text-title "><a href="/students"><i class="fa fa-link text-lightblue "
+                            aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-plus fa-2x text-red" aria-hidden="true"></i>
+            <div class="card_inner">
+                <p class="text-primary-p">اضافة طالب</p>
+                <span class="font-bold text-title "><a href="/students/add"><i class="fa fa-link text-red "
+                            aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-user fa-2x text-yellow" aria-hidden="true"></i>
+            <div class="card_inner">
+                <p class="text-primary-p">المستخدمون</p>
+                <span class="font-bold text-title text-yellow"><a href="/users"><i class="fa fa-link text-yellow"
+                            aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-user-plus fa-2x text-green " aria-hidden="true"></i>
+            <div class="card_inner">
+                <p class="text-primary-p">طلبات التسجيل</p>
+                <span class="font-bold text-title "><a href="/users/requests"><i class="fa fa-link text-green "
+                            aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+    <!-- MAIN CARDS ENDS HERE -->
+
+    <!-- CHARTS STARTS HERE -->
+    <div class="charts">
+        <div class="charts__left">
+            <div class="charts__left__title">
+                <div>
+                    <h1>عمليات الادارة</h1>
+                    <p>الجامعة التكنولوجية,علوم الحاسوب</p>
+                </div>
+                <i class="fa fa-area-chart" aria-hidden="true"></i>
+            </div>
+            <div id="apex1"></div>
+        </div>
+
+        <div class="charts__right">
+            <div class="charts__right__title">
+                <div>
+                    <h1>الطقس</h1>
+                </div>
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
+            </div>
+            <br />
+            <div>
+                <a class="weatherwidget-io" href="https://forecast7.com/ar/33d3144d36/baghdad/" data-label_1="بغداد"
+                    data-label_2="العراق" data-font="Changa" data-mode="Forecast" data-theme="pure" data-accent="">بغداد
+                    العراق</a>
+                <script>
+                    !(function (d, s, id) {
+                        var js,
+                            fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = 'https://weatherwidget.io/js/widget.min.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    })(document, 'script', 'weatherwidget-io-js');
+                </script>
+            </div>
+            <hr />
+            <div class="charts__right__cards">
+                <div class="card1">
+                    <h4>اجمالي عدد طلاب الصباحي</h4>
+                    <h4>190</h4>
+                </div>
+
+                <div class="card2">
+                    <h4>اجمالي عدد طلاب المسائي</h4>
+                    <h4>100</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CHARTS ENDS HERE -->
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script src="script.js"></script>
+
+
+
+</html>

@@ -1,0 +1,255 @@
+{{#if student}}
+
+<div class="container-fluid" id="container-fluid" style="direction: rtl;">
+
+    <form class="form-add-student" action="/students/{{student.id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+
+        {{#each errors}}
+        <div class="alert alert-danger" style="height:60px;padding-top:20px;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                <div class="media-body ml-4">
+                    <strong>{{text}}</strong>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <fieldset>
+            <h4> تعديل معلومات التسجيل</h4>
+
+            <hr>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="StName"> اسم الطالب <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{student.StudentInfo.StName}}" name="StName"
+                        placeholder="اسم الطالب" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="father name"> اسم الاب <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{student.StudentInfo.StFname}}" name="StFname"
+                        placeholder="اسم الاب" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Grand Father Name"> اسم الجد <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{student.StudentInfo.StGname}}" name="StGname"
+                        placeholder=" اسم الجد" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="4th name "> الاسم الرابع <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{student.StudentInfo.FourthName}}" name="FourthName"
+                        placeholder="الاسم الرابع" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="SurName"> اللقب<span>*</span> </label>
+                    <input type="text" class="form-control" value="{{student.StudentInfo.SurName}}" name="SurName"
+                        placeholder="اللقب" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="gender">الجنس <span>*</span> </label>
+                    <select name="Gender" class="form-control custom-select" required>
+                        {{#select student.StudentInfo.Gender}}
+                        <option value="">يرجى الاختيار.</option>
+                        <option value="Male">ذكر</option>
+                        <option value="Female">انثى</option>
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="dateOfBirth">تاريخ الولاده <span>*</span> </label>
+                    <input type="date" value="{{student.StudentInfo.DateOfBirth}}" class="form-control"
+                        name="DateOfBirth" placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Student nationality">الجنسية <span>*</span> </label>
+                    <input type="text" name="StudentNationality" value="{{student.StudentInfo.StudentNationality}}"
+                        class="form-control" placeholder="الجنيسة" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="mothersName">اسم الام الثلاثي <span>*</span> </label>
+                    <input type="text" name="MotherFullName" value="{{student.StudentInfo.MotherFullName}}"
+                        class="form-control" placeholder="اسم الام الثلاثي" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="mothersProfession">مهنة الوالدة <span>*</span> </label>
+                    <input type="text" name="MothersProfession" value="{{student.StudentInfo.MothersProfession}}"
+                        class="form-control" placeholder="مهنة الوالدة" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fathersOccupation">مهنة الوالد <span>*</span> </label>
+                    <input type="text" name="FathersProfession" value="{{student.StudentInfo.FathersProfession}}"
+                        class="form-control" placeholder="مهنة الوالد" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="phoneNumber">رقم الموبايل <span>*</span> </label>
+                    <input type="text" name="PhoneNumber" value="{{student.StudentInfo.PhoneNumber}}"
+                        class="form-control" placeholder="رقم الموبايل" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>معلومات شهادة الجنسية</h4>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Nationality certificate Number">رقم شهادةالجنسية <span>*</span> </label>
+                    <input type="text" name="NationalityCertificateNo"
+                        value="{{student.NationalityCertificate.NationalityCertificateNo}}" class="form-control"
+                        placeholder="رقم شهادة الجنسية" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4 ">
+                    <label for="Release Date of Nationality Certificate">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{student.NationalityCertificate.NcReleaseDate}}" class="form-control"
+                        name="NcReleaseDate" placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="place of birth">محل الولادة <span>*</span> </label>
+                    <input type="text" name="NcplaceOfBirth" value="{{student.NationalityCertificate.NcplaceOfBirth}}"
+                        class="form-control" placeholder="محل الولادة" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <h4>معلومات هوية الاحوال المدنية</h4>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Status ID Number">رقم الهوية<span>*</span> </label>
+                    <input type="text" name="StatusIDNo" value="{{student.StatusID.StatusIDNo}}" class="form-control"
+                        placeholder="رقم الهويه" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4 ">
+                    <label for="Release Date of Status ID ">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{student.StatusID.SidReleaseDate}}" class="form-control"
+                        name="SidReleaseDate" placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="place of Release">محل الاصدار<span>*</span> </label>
+                    <input type="text" name="placeOfRelease" value="{{student.StatusID.placeOfRelease}}"
+                        class="form-control" placeholder="محل الاصدار" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+        </fieldset>
+
+
+        <fieldset>
+            <h4>معلومات بطاقة السكن</h4>
+
+            <hr>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-2">
+                    <label for="residence card number ">رقم بطاقة السكن <span>*</span> </label>
+                    <input type="text" name="rcNumber" value="{{student.residenceCard.rcNumber}}" class="form-control"
+                        placeholder="رقم بطاقة السكن" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2 ">
+                    <label for="Release Date of residence card ">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{student.residenceCard.rcdReleaseDate}}" class="form-control"
+                        name="rcdReleaseDate" placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="address">العنوان <span>*</span> </label>
+                    <input type="text" name="Address" value="{{student.residenceCard.Address}}" class="form-control"
+                        placeholder="الكراده " required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Section">محله <span>*</span> </label>
+                    <input type="text" name="Section" value="{{student.residenceCard.Section}}" class="form-control"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="alley">زقاق <span>*</span> </label>
+                    <input type="text" name="Alley" value="{{student.residenceCard.Alley}}" class="form-control"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="house">دار<span>*</span></label>
+                    <input type="text" name="House" value="{{student.residenceCard.House}}" class="form-control"
+                        required autocomplete="off">
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>معلومات الاعدادية</h4>
+
+            <hr>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="exam number ">رقم الامتحاني<span>*</span> </label>
+                    <input type="text" name="ExamNum" value="{{student.highSchool.ExamNum}}" class="form-control"
+                        placeholder="رقم الامتحاني" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="average">المعدل<span>*</span> </label>
+                    <input type="text" name="Average" value="{{student.highSchool.Average}}" class="form-control"
+                        placeholder="المعدل " required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="total">المجموع<span>*</span> </label>
+                    <input type="text" name="Total" value="{{student.highSchool.Total}}" class="form-control"
+                        placeholder="المجموع " required autocomplete="off">
+                </div>
+
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>اختيار الفرع </h4>
+            <p></p>
+            <hr>
+
+            <div class="form-group col-md-12">
+                <label for="branch name">الفرع <span>*</span> </label>
+                <select name="BranchName" class="form-control custom-select" required>
+                    {{#select student.BranchName}}
+                    <option>يرجى الاختيار.</option>
+                    <option>البرمجيات</option>
+                    <option>ادارة الشبكات</option>
+                    <option>امنية الحاسوب</option>
+                    <option>نظم معلومات</option>
+                    <option>الذكاء الاصطناعي</option>
+
+                    {{/select}}
+                </select>
+            </div>
+
+
+
+        </fieldset>
+
+        <p>
+            <button type="submit" class="btn btn-default btn-block btn-lg">تحديث المعلومات &nbsp;
+                <i class="fa fa-pencil fa-lg"></i>
+            </button>
+        </p>
+    </form>
+</div>
+{{/if}}

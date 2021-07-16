@@ -1,0 +1,44 @@
+<nav class=" navbar navbar-expand-md navbar fixed-top " style="background-color:#202020; ">
+
+    <div class="container-fluid">
+
+        {{#if user}}
+        <a href="#menu-toggle" class="mr-5" id="menu-toggle"><i class="fa fa-bars fa-lg"></i></a>
+        {{/if}}
+        <!-- Brand -->
+        <a class="navbar-brand " href="/">
+            <img src="/img/git.svg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;
+            <span style="color:#FFC312; font-weight: 600;">UOT CS <span style="color:#f5f6fa;">SMS</span> </span>
+        </a>
+
+
+
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+
+
+                <li class="nav-item">
+
+                    <img src="/img/logos/icons/avatar.png" width="30" height="30"
+                        style="border-radius: 20px;">&nbsp;&nbsp;
+                    <span style="color: white; ">{{user.name }}</span>
+                </li>
+
+
+                {{else}}
+
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item ml-1">
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

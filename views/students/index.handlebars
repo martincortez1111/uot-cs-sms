@@ -1,0 +1,166 @@
+<div class="container-fluid" id="container-fluid" style="padding-top: 100px;">
+    <style>
+        /* student grid style
+   */
+
+
+        .employers-list-bg {
+            padding: 180px 0px 80px 0px;
+            background-image: url("../images/employers-list-bg.jpg");
+            background-size: cover;
+            position: relative;
+            background-position: center center;
+        }
+
+        .employers-list-img img {
+            max-width: 80px;
+            -webkit-box-shadow: 0 0 5px 0px #d7d7d7;
+            box-shadow: 0 0 5px 0px #d7d7d7;
+        }
+
+
+
+
+        /********************
+EMPLOYERS DETAILS
+*********************/
+
+        .employers-details-bg {
+            padding: 180px 0px 80px 0px;
+            background-image: url("../images/employers-details-bg.jpg");
+            background-size: cover;
+            position: relative;
+            background-position: center center;
+        }
+
+        .employers-details {
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        @media (min-width: 200px) and (max-width: 768px) {
+            .m-14 {
+                margin: 14px 0px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .employers-details-time h6 {
+                text-align: center !important;
+            }
+
+            .employers-details-item-border {
+                margin-bottom: 1rem !important;
+                margin-top: 1rem !important;
+            }
+        }
+
+        .list-grid-item {
+            border: 1px solid #adb5bd;
+            border-radius: 6px;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        .list-grid-item:hover {
+            -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.0);
+            box-shadow: 0 0 20px 0px rgba(50, 50, 40, 0.09);
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+            border-color: #ffc300;
+        }
+
+        .card-header {
+            background-color: transparent;
+            margin-bottom: 0 !important;
+        }
+    </style>
+
+    {{> _search-bar}}
+
+
+
+    {{#if students}}
+
+    <div class="row">
+        {{#each students}}
+        <div class="col-lg-2 col-md-6 col-sm-4 col-xs-2">
+            <div class="list-grid-item mt-4">
+                <div class="grid-item-content p-2">
+                    <div class="employers-list-img mt-3">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                            class="img-fluid mx-auto d-block rounded-circle">
+                    </div>
+                    <div class="grid-list-desc text-center mt-4">
+                        <h5 class="mb-1">
+                            {{StudentInfo.StName}}&nbsp;{{StudentInfo.StFname}}&nbsp;{{StudentInfo.StGname}}</h5>
+                        <hr>
+                        <p> الفرع : {{BranchName}}</p>
+                        <hr>
+                        <p> تاريخ الولاده : {{StudentInfo.DateOfBirth}}</p>
+                        <p> رقم الهوية : {{StudentId.StatusIDNo}}</p>
+                        <p> رقم الموبايل : {{StudentInfo.PhoneNumber}}</p>
+
+                    </div>
+                </div>
+                <hr class="mt-0 mb-0">
+                <div class="apply-button text-center mt-2 mb-2">
+                    <a href="/students/edit?id={{id}}" class="btn btn-outline-info "><i class="fa fa-pencil"
+                            aria-hidden="true"></i></a>
+
+
+                    <a href="#" class="btn btn-outline-danger" onclick=" deleteItem('/students/{{id}}');"><i
+                            class="fa fa-trash" aria-hidden="true"></i></a>
+
+                    <a href="/students/details?id={{id}}" class="btn btn-outline-success"><i class=" fa fa-eye"
+                            aria-hidden="true"></i></a>
+                </div>
+
+
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+{{#unless user.privileges.update}}
+<script>
+    let updateItems = document.getElementsByClassName('edit-item'), count;
+
+    for (count = 0; count < updateItems.length; count++) {
+        updateItems[count].style.display = 'none';
+    }
+</script>
+{{/unless}}
+
+{{#unless user.privileges.delete}}
+<script>
+    let items = document.getElementsByClassName("del-item"), i;
+
+    for (i = 0; i < items.length; i++) {
+        items[i].style.display = 'none';
+    }
+</script>
+{{/unless}}
+
+
+
+<br>
+
+{{else}}
+<p>No records found...</p>
+{{/if}}
+</div>
+
+<a href="/students/add" class="float">
+    <i class="fa fa-plus my-float"></i>
+
+</a>

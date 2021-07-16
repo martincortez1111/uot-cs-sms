@@ -1,0 +1,230 @@
+<div class="container-fluid" style="padding-top: 50px; direction: rtl;">
+    <style>
+        .theme-bg-white {
+            background-color: #fff !important;
+            padding: 0;
+        }
+
+        .ui-w-100 {
+            width: 100px !important;
+            padding: 0;
+
+        }
+    </style>
+
+    <div class="container-m-nx container-m-ny theme-bg-white mb-4">
+        <div class="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
+            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                class="d-block ui-w-100 rounded-circle">
+            <div class="media-body ml-5">
+                {{#each user}}
+                <h4 class="font-weight-bold mb-4"> {{name}}</h4>
+                {{/each}}
+                <div>
+                    هناك {{pendingRequests}} طلبات تسجيل مستخدمين معلقة.
+
+                </div>
+                <div>
+                    <a href="/users/requests">
+                        <br>
+                        <button type="button" class="btn btn-warning" style="">التفاصيل</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <hr class="m-0">
+    </div>
+
+    <!-- User Data Table -->
+
+
+    <!-- new  -->
+
+
+    <div class="row">
+        {{#each users}}
+        <div class="col-lg-2 col-md-6 col-sm-4 col-xs-2">
+            <div class="list-grid-item mt-4">
+                <div class="grid-item-content p-2">
+                    <div class="employers-list-img mt-3">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""
+                            class="img-fluid mx-auto d-block rounded-circle">
+                    </div>
+                    <div class="grid-list-desc text-center mt-4">
+                        <h5 class="mb-1">
+                            {{name}}
+
+                        </h5>
+                        <hr>
+                        <p>البريد الالكتروني <br>{{email}}</p>
+
+                        <hr>
+                        <p> الصفه:{{role}}</p>
+                        <hr>
+                        <p>الاذونات:{{isAdmin}}</p>
+                        <hr>
+                        <p>الصلاحيات</p>
+                        <p>Create: {{privileges.create}}, Read: {{privileges.read}}, Update: {{privileges.update}},
+                            Delete:
+                            {{privileges.delete}}</p>
+
+                    </div>
+                </div>
+                <hr class="mt-0 mb-0">
+                <div class="apply-button text-center mt-2 mb-2">
+                    <a href="/students/edit?id={{id}}" class="btn btn-outline-info " onclick="findUser('{{id}}');"><i
+                            class="fa fa-pencil" aria-hidden="true"></i></a>
+
+
+                    <a href="#" class="btn btn-outline-danger" onclick="deleteItem('/users/{{id}}');"><i
+                            class="fa fa-trash" aria-hidden="true"></i></a>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
+
+
+
+
+<!-- end of new -->
+
+
+<!-- Edit User Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form id="updateUserForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:30px 20px;">
+                    <h5>Basic Details.</h5>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="hidden" id="_id" value="">
+                            <label for="">Full Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Email</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Designation</label>
+                            <select name="role" id="role" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Principal">Principal</option>
+                                <option value="Accountant">Accountant</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Is Admin</label>
+                            <select name="isAdmin" id="isAdmin" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h5>Access Privileges</h5>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="">Create</label>
+                            <select name="create" id="create" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="">Read</label>
+                            <select name="read" id="read" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="">Update</label>
+                            <select name="update" id="update" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="">Delete</label>
+                            <select name="delete" id="delete" class="form-control custom-select">
+                                <option value="">Choose...</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel &nbsp;<i
+                            class="fa fa-times"></i></button>
+                    <button type="button" onclick="updateUser();" class="btn btn-primary updateUser" data-id="">Update
+                        User &nbsp;<i class="fa fa-pencil"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+
+
+<!-- Checking UPDATE & DELETE Access Privileges -->
+
+{{#unless user.privileges.update}}
+<script>
+    let updateItems = document.getElementsByClassName('select-item'), count;
+
+    for (count = 0; count < updateItems.length; count++) {
+        updateItems[count].style.display = 'none';
+    }
+</script>
+{{/unless}}
+
+{{#unless user.privileges.delete}}
+<script>
+    let items = document.getElementsByClassName("delete-item"), i;
+
+    for (i = 0; i < items.length; i++) {
+        items[i].style.display = 'none';
+    }
+</script>
+{{/unless}}
+
+{{#if_eq user.privileges.update false user.privileges.delete false}}
+<script>
+    let x = document.getElementsByClassName('dropdown-hide'), j;
+
+    for (j = 0; j < x.length; j++) {
+        x[j].style.display = 'none';
+    }
+</script>
+{{/if_eq}}
+
+</div>

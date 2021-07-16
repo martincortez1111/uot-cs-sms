@@ -1,0 +1,258 @@
+<div class="container-fluid" id="container-fluid" style="direction: rtl; padding-top: 100px;">
+    <form class="form-add-student needs-validations" action="/client/add_studentInfo" method="POST" style="z-index:1;"
+        novalidate>
+        {{#each errors}}
+        <div class="alert alert-danger custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                <span aria-hidden="true" style="color:white;">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                <div class="media-body ml-4 mt-1">
+                    <strong>{{text}}.</strong>&nbsp;&nbsp;Change a few things up and try submitting again.
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <fieldset>
+            <h4>معلومات التسجيل</h4>
+            <p>ادخل المعلومات الخاصه بل التسجيل.</p>
+
+            <hr>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="StName"> اسم الطالب <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{body.StName}}" name="StName"
+                        placeholder="اسم الطالب" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="father name"> اسم الاب <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{body.StFname}}" name="StFname"
+                        placeholder="اسم الاب" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Grand Father Name"> اسم الجد <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{body.StGname}}" name="StGname"
+                        placeholder=" اسم الجد" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="4th name "> الاسم الرابع <span>*</span> </label>
+                    <input type="text" class="form-control" value="{{body.FourthName}}" name="FourthName"
+                        placeholder="الاسم الرابع" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="SurName"> اللقب<span>*</span> </label>
+                    <input type="text" class="form-control" value="{{body.SurName}}" name="SurName" placeholder="اللقب"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="gender">الجنس <span>*</span> </label>
+                    <select name="Gender" class="form-control custom-select" required>
+                        {{#select body.Gender}}
+                        <option>يرجى الاختيار.</option>
+                        <option>ذكر</option>
+                        <option>انثى</option>
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="dateOfBirth">تاريخ الولاده <span>*</span> </label>
+                    <input type="date" value="{{body.DateOfBirth}}" class="form-control" name="DateOfBirth"
+                        placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Student nationality">الجنسية <span>*</span> </label>
+                    <input type="text" name="StudentNationality" value="{{body.StudentNationality}}"
+                        class="form-control" placeholder="الجنيسة" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="mothersName">اسم الام الثلاثي <span>*</span> </label>
+                    <input type="text" name="MotherFullName" value="{{body.MotherFullName}}" class="form-control"
+                        placeholder="اسم الام الثلاثي" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="mothersProfession">مهنة الوالدة <span>*</span> </label>
+                    <input type="text" name="MothersProfession" value="{{body.MothersProfession}}" class="form-control"
+                        placeholder="مهنة الوالدة" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fathersOccupation">مهنة الوالد <span>*</span> </label>
+                    <input type="text" name="FathersProfession" value="{{body.FathersProfession}}" class="form-control"
+                        placeholder="مهنة الوالد" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="phoneNumber">رقم الموبايل <span>*</span> </label>
+                    <input type="text" name="PhoneNumber" value="{{body.PhoneNumber}}" class="form-control"
+                        placeholder="رقم الموبايل" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>معلومات شهادة الجنسية</h4>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Nationality certificate Number">رقم شهادةالجنسية <span>*</span> </label>
+                    <input type="text" name="NationalityCertificateNo" value="{{body.NationalityCertificateNo}}"
+                        class="form-control" placeholder="رقم شهادة الجنسية" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4 ">
+                    <label for="Release Date of Nationality Certificate">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{body.NcReleaseDate}}" class="form-control" name="NcReleaseDate"
+                        placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="place of birth">محل الولادة <span>*</span> </label>
+                    <input type="text" name="NcplaceOfBirth" value="{{body.NcplaceOfBirth}}" class="form-control"
+                        placeholder="محل الولادة" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <h4>معلومات هوية الاحوال المدنية</h4>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Status ID Number">رقم الهوية<span>*</span> </label>
+                    <input type="text" name="StatusIDNo" value="{{body.StatusIDNo}}" class="form-control"
+                        placeholder="رقم الهويه" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4 ">
+                    <label for="Release Date of Status ID ">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{body.SidReleaseDate}}" class="form-control" name="SidReleaseDate"
+                        placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="place of Release">محل الاصدار<span>*</span> </label>
+                    <input type="text" name="placeOfRelease" value="{{body.placeOfRelease}}" class="form-control"
+                        placeholder="محل الاصدار" required autocomplete="off">
+                </div>
+
+
+            </div>
+
+        </fieldset>
+
+
+        <fieldset>
+            <h4>معلومات بطاقة السكن</h4>
+
+            <hr>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-2">
+                    <label for="residence card number ">رقم بطاقة السكن <span>*</span> </label>
+                    <input type="text" name="rcNumber" value="{{body.rcNumber}}" class="form-control"
+                        placeholder="رقم بطاقة السكن" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2 ">
+                    <label for="Release Date of residence card ">تاريخ الاصدار <span>*</span> </label>
+                    <input type="date" value="{{body.rcdReleaseDate}}" class="form-control" name="rcdReleaseDate"
+                        placeholder="سنه / شهر / يوم" required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="address">العنوان <span>*</span> </label>
+                    <input type="text" name="Address" value="{{body.Address}}" class="form-control"
+                        placeholder="الكراده " required autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="Section">محله <span>*</span> </label>
+                    <input type="text" name="Section" value="{{body.Section}}" class="form-control" required
+                        autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="alley">زقاق <span>*</span> </label>
+                    <input type="text" name="Alley" value="{{body.Alley}}" class="form-control" required
+                        autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="house">دار <span>*</span> </label>
+                    <input type="text" name="House" value="{{body.House}}" class="form-control" required
+                        autocomplete="off">
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>معلومات الاعدادية</h4>
+
+            <hr>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="exam number ">رقم الامتحاني<span>*</span> </label>
+                    <input type="text" name="ExamNum" value="{{body.ExamNum}}" class="form-control"
+                        placeholder="رقم الامتحاني" required autocomplete="off">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="average">المعدل<span>*</span> </label>
+                    <input type="text" name="Average" value="{{body.Average}}" class="form-control"
+                        placeholder="المعدل " required autocomplete="off">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="total">المجموع<span>*</span> </label>
+                    <input type="text" name="Total" value="{{body.Total}}" class="form-control" placeholder="المجموع "
+                        required autocomplete="off">
+                </div>
+
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <h4>اختيار الفرع </h4>
+            <p></p>
+            <hr>
+
+            <div class="form-group col-md-12">
+                <label for="branch name">الفرع <span>*</span> </label>
+                <select name="BranchName" required class="form-control custom-select">
+                    {{#select body.BranchName}}
+
+                    <option>..يرجى الاختيار</option>
+                    <option>البرمجيات</option>
+
+                    <option>ادارة الشبكات</option>
+                    <option>امنية الحاسوب</option>
+                    <option>نظم معلومات</option>
+                    <option>الذكاء الاصطناعي</option>
+
+                    {{/select}}
+                </select>
+            </div>
+
+
+
+        </fieldset>
+
+
+
+        <p>
+            <button type="submit" class="btn btn-default btn-block btn-lg">حفظ المعلومات &nbsp;
+                <i class="fa fa-paper-plane fa-lg"></i>
+            </button>
+
+            <a href="/client/signout" class="btn btn-warning btn-block mt-3">تسجيل خروج &nbsp;&nbsp;<i
+                    class="fa fa-sign-out fa-lg"></i>
+            </a>
+        </p>
+    </form>
+</div>
